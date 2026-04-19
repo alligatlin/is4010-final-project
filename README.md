@@ -7,3 +7,47 @@ The Marketing Spend Analyzer is a command-line interface (CLI) tool designed for
 1. Clone this repository:
    ```bash
    git clone [https://github.com/alligatlin/is4010-final-project.git](https://github.com/alligatlin/is4010-final-project.git)
+
+2. Navigate to the project directory:
+cd is4010-final-project
+
+3. Install dependencies:
+This project uses pytest for the automated test suite.
+pip3 install -r requirements.txt
+
+## Usage
+To run the analyzer, pass the path of your CSV expense file as an argument:
+python3 main.py data.csv
+
+## Examples
+# Example 1: Standard Marketing Audit
+
+Input (data.csv):
+
+date,category,description,amount
+2026-04-01,Social Media,Instagram Ads,150.00
+2026-04-10,Events,Graeter's Pop-up,300.00
+
+Run command:
+
+python3 main.py data.csv
+
+Expected Output:
+--- Marketing Spend Report ---
+Total Expenditure: $450.00
+------------------------------
+Events         : $300.00
+Social Media   : $150.00
+------------------------------
+
+# Example 2: Error Handling (Missing File)
+
+If you attempt to run a file that does not exist, the program handles it gracefully:
+Run command:
+python3 main.py missing_file.csv
+Expected Output:
+Error: File 'missing_file.csv' not found.
+
+# Known Limitations
+Currently supports .csv format only.
+Input files must include headers for 'amount' and 'category'.
